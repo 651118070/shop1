@@ -27,7 +27,10 @@ const corpsOtions = {
   optionsSucessStatus: 200,
   credentials: true,
 };
-app.use(cors());
+app.use(cors({
+  origin: 'https://mboashopsite.onrender.com', 
+  credentials: true,
+}));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser());
