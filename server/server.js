@@ -27,7 +27,7 @@ const corpsOtions = {
   optionsSucessStatus: 200,
   credentials: true,
 };
-app.use(cors());
+app.use(cors('*'));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser());
