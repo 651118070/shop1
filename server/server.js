@@ -16,17 +16,17 @@ import { search } from "./routes/shop/SearchRoute.js";
 import { orders } from "./routes/admin/orderRoute.js";
 import { Feature } from "./routes/common/featureRoute.js";
 import { review } from "./routes/shop/ReviewRoute.js";
-const corpsOtions = {
-  origin: (origin, callback) => {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by cors"));
-    }
-  },
-  optionsSucessStatus: 200,
-  credentials: true,
-};
+// const corpsOtions = {
+//   origin: (origin, callback) => {
+//     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by cors"));
+//     }
+//   },
+//   optionsSucessStatus: 200,
+//   credentials: true,
+// };
 app.use(cors({
   origin: 'https://mboashopsite.onrender.com', 
   credentials: true,
