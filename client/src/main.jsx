@@ -1,3 +1,4 @@
+import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
@@ -5,22 +6,20 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { Toaster } from "./components/ui/toaster.jsx";
+import posthog from 'posthog-js';
 
-import { PostHogProvider} from 'posthog-js/react'
+// Initialize PostHog
+posthog.init(process.env.REACT_APP_PUBLIC_POSTHOG_KEY, {
+  api_host: process.env.REACT_APP_PUBLIC_POSTHOG_HOST || 'https://app.posthog.com',
+});
 
-const options = {
-  api_host: process.env.REACT_APP_PUBLIC_POSTHOG_HOST,
-}
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <Provider store={store}>
-    <PostHogProvider 
-      apiKey={process.env.REACT_APP_PUBLIC_POSTHOG_KEY}
-      options={options}
-    >
-      <App />
-    </PostHogProvider>
-      <Toaster />
-    </Provider>
-  </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+        <Toaster />
+      </Provider>
+    </BrowserRouter>
+  </React.StrictMode>
 );
