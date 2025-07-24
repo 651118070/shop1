@@ -1,23 +1,22 @@
-import { Button } from "@/components/ui/button";
 import bannerOne from "../../assets/banner-1.webp";
 import bannerTwo from "../../assets/banner-2.webp";
 import bannerThree from "../../assets/banner-3.webp";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import '../../App.css' 
+import { SiAdidas, SiPuma, SiNike, SiZara,} from "react-icons/si";
+import logo from '../../../public/download.png'
+import logo1 from '../../../public/images.png'
 import {
-  Airplay,
+
   BabyIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  CloudLightning,
-  Heater,
-  Images,
-  Shirt,
-  ShirtIcon,
-  ShoppingBasket,
-  UmbrellaIcon,
-  WashingMachine,
+
+
+  
+  User,
+  User2,
+
+  Footprints,
   WatchIcon,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -36,20 +35,20 @@ const Slides = [
   { image:bannerTwo},
 ];
 const categoriesWithIcon = [
-  { id: "men", label: "Men", icon: ShirtIcon },
-  { id: "women", label: "Women", icon: CloudLightning },
+  { id: "men", label: "Men", icon: User },
+  { id: "women", label: "Women", icon: User2},
   { id: "kids", label: "Kids", icon: BabyIcon },
   { id: "accessories", label: "Accessories", icon: WatchIcon },
-  { id: "footwear", label: "Footwear", icon: UmbrellaIcon },
+  { id: "footwear", label: "Footwear", icon: Footprints },
 ];
 
 const brandsWithIcon = [
-  { id: "nike", label: "Nike", icon: Shirt },
-  { id: "adidas", label: "Adidas", icon: WashingMachine },
-  { id: "puma", label: "Puma", icon: ShoppingBasket },
-  { id: "levi", label: "Levi's", icon: Airplay },
-  { id: "zara", label: "Zara", icon: Images },
-  { id: "h&m", label: "H&M", icon: Heater },
+  { id: "nike", label: "Nike", icon: SiNike },
+  { id: "adidas", label: "Adidas", icon: SiAdidas},
+  { id: "puma", label: "Puma", icon: SiPuma},
+  { id: "levi", label: "Levi's",  icon: () => <img src={logo1} alt="Levi" width={24} height={24} />,},
+  { id: "zara", label: "Zara", icon: SiZara },
+  { id: "h&m", label: "H&M",  icon: () => <img src={logo} alt="H&M" width={24} height={24} />,},
 ];
 function ShoppingHome() {
 
@@ -196,7 +195,10 @@ function ShoppingHome() {
                     
                   />
                 ))
-              : null}
+              : <div className="flex">
+              No products for now
+            </div>
+            }
           </div>
         </div>
       </section>
