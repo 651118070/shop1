@@ -48,9 +48,9 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={
-              <CheckAuth isAuthenticated={isAuthenticated} user={user}></CheckAuth>
-            }
+            // element={
+            //   <CheckAuth isAuthenticated={isAuthenticated} user={user}></CheckAuth>
+            // }
           />
           <Route
             path="/auth"
